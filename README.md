@@ -1,1 +1,1 @@
-group:B4
+GROUP:B4
