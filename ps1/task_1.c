@@ -2,7 +2,7 @@
 void climb();
 void climp();
 int main(){
-turn_on("olympics4.kw");
+turn_on("task_1.kw");
 set_step_delay(150);
 put_beeper();
 while(no_beepers_in_bag()){
