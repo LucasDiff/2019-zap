@@ -17,15 +17,24 @@ int main(){
 		dajdaj();
 	}
 	turn_left();
+turn_left();
 	step();
-	turn_left();
-	while(front_is_clear()){
+step();
+step();
+turn_right();
+	while(no_beepers_present()){
 		step();
 	}
 		turn_left();
+while(front_is_clear()){
 		step();
+}
 		turn_left();
-		turn_left();
+		while(front_is_clear()){
+step();
+}
+turn_left();
+turn_left();
 turn_off();
 return 0;
 } 
