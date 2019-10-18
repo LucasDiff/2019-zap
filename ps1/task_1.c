@@ -2,13 +2,15 @@
 void climb();
 void climp();
 int main(){
-turn_on("task_1.kw");
+turn_on("olympics4.kw");
 set_step_delay(150);
 put_beeper();
 while(no_beepers_in_bag()){
 if(right_is_blocked() && front_is_blocked()){
 	climb();
 }
+else if(right_is_blocked() && front_is_clear()){
+while (front_is_clear()){ step();}}
 else while(right_is_blocked() && front_is_clear()){
 	step();
 }
@@ -19,6 +21,8 @@ while(no_beepers_present()){
 	if (left_is_blocked() && front_is_blocked()){
 		climp();
 }
+else if(left_is_blocked() && front_is_clear()){
+while (front_is_clear()){ step();}}
 else while(left_is_blocked()&& front_is_clear() ){
 	step();
 }
