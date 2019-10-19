@@ -4,7 +4,7 @@ void check();
 void doit();
 bool checkey();
 int main(){
-	turn_on("task_77.kw"); 
+	turn_on("task_7.kw"); 
 	set_step_delay(100);
 	while(front_is_clear()){
 		put_beeper();
