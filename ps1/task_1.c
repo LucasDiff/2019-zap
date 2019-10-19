@@ -51,6 +51,10 @@ return 0;
 		step();
 	}
        turn_left();
+       while(front_is_clear()){
+           step();
+       }
+       }
        if (beepers_present()){
 	       pick_beeper();
        }
