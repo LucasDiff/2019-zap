@@ -4,7 +4,7 @@ void check();
 void doit();
 bool checkey();
 int main(){
-	turn_on("task_7.kw"); 
+	turn_on("task_77.kw"); 
 	set_step_delay(100);
 	while(front_is_clear()){
 		put_beeper();
@@ -18,7 +18,26 @@ int main(){
 	}
 	turn_left();
 	turn_left();
+	if(left_is_clear()){
+	check();
+	if(checkey()){
+		while(not_facing_east()){
+			turn_left();
+		}
+		pick_beeper();
+		pick_beeper();
+		step();
+	}
+		while(not_facing_east()){
+			turn_left();
+		}
+		step();
+	}
+
 	while(front_is_clear()){
+		while(left_is_blocked() && front_is_clear()){
+			step();
+		}
 	check();
 	if(checkey()){
 		pick_beeper();
@@ -29,7 +48,7 @@ int main(){
 	if(front_is_clear()){
 	step();
 	}
-	while(left_is_blocked()){
+	while(left_is_blocked()&& front_is_clear()){
 		step();
 	}
 	}
@@ -86,6 +105,7 @@ void turn_right(){
 	turn_left();
 }
 void check(){
+	if (left_is_clear()){
 	put_beeper();
 	turn_left();
 	step();
@@ -101,5 +121,5 @@ void check(){
 			}
 	}
 	put_beeper();
+	}
 }
-
