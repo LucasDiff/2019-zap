@@ -54,7 +54,6 @@ return 0;
        while(front_is_clear()){
            step();
        }
-       }
        if (beepers_present()){
 	       pick_beeper();
        }
