@@ -9,6 +9,8 @@ pick_beeper();
 put_beeper();
 pick_beeper();
 put_beeper();
+pick_beeper();
+put_beeper();
 while(no_beepers_in_bag()){
 if(right_is_blocked() && front_is_blocked()){
 	climb();
