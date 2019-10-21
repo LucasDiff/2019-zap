@@ -7,6 +7,8 @@ set_step_delay(150);
 put_beeper();
 pick_beeper();
 put_beeper();
+pick_beeper();
+put_beeper();
 while(no_beepers_in_bag()){
 if(right_is_blocked() && front_is_blocked()){
 	climb();
