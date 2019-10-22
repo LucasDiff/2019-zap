@@ -51,11 +51,11 @@ return 0;
 		step();
 	}
        turn_left();
-       if (beepers_present()){
-	       pick_beeper();
-       }
        while(front_is_clear()){
            step();
+       }
+       if (beepers_present()){
+	       pick_beeper();
        }
 } 
 void climp(){
