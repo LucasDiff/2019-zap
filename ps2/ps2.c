@@ -18,14 +18,14 @@ float lift_a_car(){
 	//prints: 0.1100
 	printf("%.4f\n", lift_a_car(4, 90, 1650));
 	// // prints: 0.2100
-        r2 = 2 * m1 / (m1 + m2);
+        (r2 * 100) / 100 = 2 * m1 / (m1 + m2);
 }
 float unit_price(){
 	printf("%.4f\n", unit_price(4.79, 16, 150));
 	// prints: 0.2000
 	printf("%.4f\n", unit_price(5.63, 20, 200));
 	// // prints: 0.1400
-	unit_price = rolls_count * pieces_count / pack_price / 100;
+	(unit_price * 100) / 100 = rolls_count * pieces_count / pack_price / 100;
 }
 int collatz(){
 	while (n !==1){
@@ -53,5 +53,9 @@ void counter(){
 	int result_array[2];
 	counter(input_array, 5, result_array);
 	printf("%d %d\n", result_array[0], result_array[1]);
-
 }
+unsigned long sum_squared(){
+	printf("%lu\n", sum_squared(1));
+	// prints: 2
+	printf("%lu\n", sum_squared(4));
+	// // prints: 70
