@@ -5,7 +5,6 @@ float lift_a_car();
 float unit_price();
 int collatz();
 int opposite_number();
-void counter();
 int main(){
 	printf("%.4f\n", lift_a_car(4, 90, 1650));
 	// // prints: 0.2100
