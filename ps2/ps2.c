@@ -38,7 +38,7 @@ int collatz(){
 	}
 }
 int opposite_number(){
-	int n, number;
+	int n, number, opposite_number;
 	if ( (n+1) / 2  > number){
 		opposite_number = number + ( n / 2);
 	}
