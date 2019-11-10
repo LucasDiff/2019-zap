@@ -10,21 +10,19 @@ int main(){
 }
 float lift_a_car(const int stick_length, const int human_weight, const int car_weight){   
 	float r2;
-        r2 = stick_length * human_weight / ( human_weight + car_weight);
-	r2 = (r2 * 100) / 100;
+        r2 = ((stick_length * human_weight / ( human_weight + car_weight)) * 100) / 100;
 	return r2;
 }
 float unit_price(const float pack_price, const int rolls_count, const int pieces_count){   
 	float up;
-	up = rolls_count * pieces_count / pack_price / 100;
-	up = (up * 100) / 100;
+	up = ((rolls_count * pieces_count / pack_price / 100) * 100 ) / 100;
         return up;
 }
 int collatz(const int number){
 	int size, n;
         n = number;
-        size = 	0;
-	for ( size = 0; n != 1; size++){  
+        size = 	1;
+	for ( size = 1; n != 1; size++){  
 		if ((n % 2)==0){
 			n = n / 2;
 		}
