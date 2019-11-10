@@ -5,6 +5,7 @@ float lift_a_car(const int stick_length, const int human_weight, const int car_w
 float unit_price(const float pack_price, const int rolls_count, const int pieces_count);
 int collatz(const int number);
 int opposite_number(const int n, const int number);
+void counter();
 int main(){
 	return 0; 
 }
@@ -45,3 +46,10 @@ int opposite_number(const int n, const int number){
 		on= (n+1) / 2;
 	return on;
 } 
+void counter(const int input_array[], const int array_size, int result_array[2]){
+	for ( int i = 0; array_size >= i; i = i + 2){
+		result_array[0] = result_array[0] + input_array[i];
+		result_array[1] = result_array[1] + input_array[ i - 1 ];
+	}
+}	
+
