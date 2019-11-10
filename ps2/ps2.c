@@ -6,8 +6,9 @@ float unit_price(const float pack_price, const int rolls_count, const int pieces
 int collatz(const int number);
 int opposite_number(const int n, const int number);
 void counter(const int input_array[], const int array_size, int result_array[2]);
-int array_min(const int input_array[], const int array_size);
 int array_max(const int input_array[], const int array_size);
+int array_min(const int input_array[], const int array_size);
+unsigned long special_counter(const int input_array[], const int array_size);
 int main(){
 	return 0; 
 }
@@ -78,5 +79,17 @@ int array_max(const int input_array[], const int array_size){
 	}
 	return cislo;
 } 
+unsigned long special_counter(const int input_array[], const int array_size){
+	int i = 1, a = 0, sum1 = 0, sum2 = 0, sum;
+	for ( i = 1; array_size != i; i=i+2){
+		sum1 = sum1 + (input_array[i] * input_array[i]);
+	}
+        for ( a = 0; array_size != a; a=a+2){
+		sum2 = sum2 + input_array[a];
+	}
+        sum = sum1 + sum2;
+	return sum;
+}
+
 
 
