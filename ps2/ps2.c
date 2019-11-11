@@ -19,15 +19,9 @@ int main(){
 	printf("%d %d\n", result_array[0], result_array[1]);
 	return 0; 
 }
-float lift_a_car(const int stick_length, const int human_weight, const int car_weight){   
-	float i;
-	int s,h,c,m,n;
-	s = stick_length;
-	h = human_weight;
-	c = car_weight;
-	m = s * h;
-	n = h + c;
-        i = m / n;
+float lift_a_car(const int stick_length, const int human_weight, const int car_weight){ 
+        float i;	
+        i = (float) stick_length * human_weight / (human_weight + car_weight);
 	i = roundf(i * 100) / 100;
 	return i;
 }
