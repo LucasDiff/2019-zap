@@ -59,15 +59,13 @@ int opposite_number(const int n, const int number){
 	return on;
 } 
 void counter(const int input_array[], const int array_size, int result_array[2]){
-	int b, c;
-	for ( int i = 1; array_size > i; i = i + 2){
+	int b = 0, c = 0;
+	for ( int i = 1; i < array_size; i = i + 2){
 		b = b + input_array[i];
 	}
-	for ( int a = 0; array_size > a; a = a + 2){
+	for ( int a = 0; a < array_size; a = a + 2){
 		c = c + input_array[a];
 	}
-	c = c - 4;
-	b = b - 4;
 	result_array[0] = c;
 	result_array[1] = b;
 	return;
@@ -97,8 +95,8 @@ int array_max(const int input_array[], const int array_size){
 	return cislo;
 } 
 unsigned long special_counter(const int input_array[], const int array_size){
-	int i,a, sum1, sum2;
-	float sum;
+	int i,a, sum1 = 0, sum2 = 0;
+	float sum = 0;
 	for ( i = 1; array_size > i; i=i+2){
 		sum1 = sum1 + (input_array[i] * input_array[i]);
 	}
