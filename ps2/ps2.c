@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 float lift_a_car(const int stick_length, const int human_weight, const int car_weight);
 float unit_price(const float pack_price, const int rolls_count, const int pieces_count);
 int collatz(const int number);
@@ -10,16 +11,30 @@ int array_max(const int input_array[], const int array_size);
 int array_min(const int input_array[], const int array_size);
 unsigned long special_counter(const int input_array[], const int array_size);
 int main(){
+	printf("%.4f\n", lift_a_car(2, 80, 1400));
+	printf("%.4f\n", lift_a_car(4, 90, 1650));
+        int input_array[] = {1,2,3,4,5,6,7};
+	int result_array[2];
+	counter(input_array, 7, result_array);
+	printf("%d %d\n", result_array[0], result_array[1]);
 	return 0; 
 }
 float lift_a_car(const int stick_length, const int human_weight, const int car_weight){   
-	float r2;
-        r2 = ((stick_length * human_weight / ( human_weight + car_weight)) * 100)/ 100;
-	return r2;
+	float i;
+	int s,h,c,m,n;
+	s = stick_length;
+	h = human_weight;
+	c = car_weight;
+	m = s * h;
+	n = h + c;
+        i = m / n;
+	i = roundf(i * 100) / 100;
+	return i;
 }
 float unit_price(const float pack_price, const int rolls_count, const int pieces_count){   
 	float up;
-	up = ((rolls_count * pieces_count / pack_price / 100) * 100) / 100;
+	up = (100 /(rolls_count * pieces_count / pack_price) * 100) / 100;
+	up = roundf(up * 100) / 100;
         return up;
 }
 int collatz(const int number){
@@ -50,17 +65,22 @@ int opposite_number(const int n, const int number){
 	return on;
 } 
 void counter(const int input_array[], const int array_size, int result_array[2]){
-	for ( int i = 0; array_size >= i; i = i + 2){
-		result_array[0] = result_array[0] + input_array[i];
-		result_array[1] = result_array[1] + input_array[ i - 1 ];
+	for ( int i = 1; array_size < i; i = i + 2){
+		result_array[1] = result_array[1] + input_array[i];
+		break;
 	}
+	for ( int i = 0; array_size > i; i = i + 2){
+		result_array[0] = result_array[0] + input_array[i];
+		break;
+	}
+	return;
 }
 int array_min(const int input_array[], const int array_size){
 	int cislo = 9999999,i;
-	if (array_size == 0){
+	if (input_array == NULL){
 		return -1;
 	}
-	for ( i = 0 ; i <= array_size; i++){
+	for ( i = 0 ; i != array_size; i++){
 		if ( cislo > input_array[i]){ 
 		cislo = input_array[i];
 		}
@@ -68,11 +88,11 @@ int array_min(const int input_array[], const int array_size){
 	return cislo;
 } 
 int array_max(const int input_array[], const int array_size){
-	int cislo = 0,i;
+	int cislo = -9999999,i;
 	if (array_size == 0){
 		return -1;
 	}
-	for ( i = 0 ; i <= array_size; i++){
+	for ( i = 0 ; i != array_size; i++){
 		if ( cislo < input_array[i]){ 
 		cislo = input_array[i];
 		}
@@ -80,7 +100,8 @@ int array_max(const int input_array[], const int array_size){
 	return cislo;
 } 
 unsigned long special_counter(const int input_array[], const int array_size){
-	int i = 1, a = 0, sum1 = 0, sum2 = 0, sum;
+	int i = 1, a = 0, sum1, sum2;
+	float sum;
 	for ( i = 1; array_size != i; i=i+2){
 		sum1 = sum1 + (input_array[i] * input_array[i]);
 	}
@@ -90,6 +111,7 @@ unsigned long special_counter(const int input_array[], const int array_size){
         sum = sum1 + sum2;
 	return sum;
 }
+
 
 
 
