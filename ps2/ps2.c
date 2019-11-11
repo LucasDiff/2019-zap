@@ -103,7 +103,7 @@ unsigned long special_counter(const int input_array[], const int array_size){
         for ( a = 0; array_size > a; a=a+2){
 		sum2 = sum2 + input_array[a];
 	}
-        sum = sum1 + sum2 - 8;
+        sum = sum1 + sum2;
 	return sum;
 }
 
