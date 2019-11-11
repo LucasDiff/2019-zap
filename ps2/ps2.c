@@ -59,14 +59,17 @@ int opposite_number(const int n, const int number){
 	return on;
 } 
 void counter(const int input_array[], const int array_size, int result_array[2]){
-	for ( int i = 1; array_size < i; i = i + 2){
-		result_array[1] = result_array[1] + input_array[i];
-		break;
+	int b, c;
+	for ( int i = 1; array_size > i; i = i + 2){
+		b = b + input_array[i];
 	}
-	for ( int i = 0; array_size > i; i = i + 2){
-		result_array[0] = result_array[0] + input_array[i];
-		break;
+	for ( int a = 0; array_size > a; a = a + 2){
+		c = c + input_array[a];
 	}
+	c = c - 4;
+	b = b - 4;
+	result_array[0] = c;
+	result_array[1] = b;
 	return;
 }
 int array_min(const int input_array[], const int array_size){
