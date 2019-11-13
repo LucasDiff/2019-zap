@@ -11,6 +11,7 @@ int array_max(const int input_array[], const int array_size);
 int array_min(const int input_array[], const int array_size);
 unsigned long special_counter(const int input_array[], const int array_size);
 int special_numbers(const int input_array[], const int array_size, int result_array[]);
+unsigned long sum_squared(const int line);
 int main(){
 	printf("%.4f\n", lift_a_car(2, 80, 1400));
 	printf("%.4f\n", lift_a_car(4, 90, 1650));
@@ -123,6 +124,30 @@ int special_numbers(const int input_array[], const int array_size, int result_ar
 	counter ++;
 	return counter;
 }
+unsigned long sum_squared(const int line){
+	unsigned long sum = 0;
+	int count = 2;
+	unsigned long upper[line], lower[line];
+        if (line == 0) return 1;
+	upper[0] = 1;
+	upper[1] = 1;
+	if (line == 1) return 2;
+	do {
+		for (int i = 0; i <= count; i++){	
+	        if ((i == 0) || (i == count)) lower[i] = 1;
+		else lower[i] = upper[i-1] + upper[i];
+	}
+	for (int j = 0; j <= count; j++){
+		upper[j] = lower [j];
+	}
+	count ++;
+	}
+	while (count <= line);
+	for (int k= 0; k <= line; k++){
+	 sum += lower[k] * lower[k];
+	 }
+	 return sum;
+	 }
 
 
 
