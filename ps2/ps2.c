@@ -10,6 +10,7 @@ void counter(const int input_array[], const int array_size, int result_array[2])
 int array_max(const int input_array[], const int array_size);
 int array_min(const int input_array[], const int array_size);
 unsigned long special_counter(const int input_array[], const int array_size);
+int special_numbers(const int input_array[], const int array_size, int result_array[]);
 int main(){
 	printf("%.4f\n", lift_a_car(2, 80, 1400));
 	printf("%.4f\n", lift_a_car(4, 90, 1650));
@@ -106,6 +107,23 @@ unsigned long special_counter(const int input_array[], const int array_size){
         sum = sum1 + sum2;
 	return sum;
 }
+int special_numbers(const int input_array[], const int array_size, int result_array[]){
+	int i = 0, j = 0, sum = 0, counter = 0;
+	for (i=0; i < array_size - 1; i++){
+		sum = 0;
+	     for (j = i + 1; j < array_size; j++) {
+	     sum += input_array[j];
+	     }
+	     if (input_array[i] > sum){
+		     result_array[counter] = input_array[i];
+		    counter++; 
+	     }
+	}
+	result_array[counter] = input_array[array_size-1];
+	counter ++;
+	return counter;
+}
+
 
 
 
