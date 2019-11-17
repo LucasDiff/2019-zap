@@ -5,19 +5,24 @@
 #include "hangman.h"
 
 int get_word(char secret[]){
+	// check if file exists first and is readable
 	FILE *fp = fopen(WORDLIST_FILENAME, "rb");
 	if( fp == NULL ){
 		fprintf(stderr, "No such file or directory: %s\n", WORDLIST_FILENAME);
 		return 1;
 	}
 
+	// get the filesize first
 	struct stat st;
 	stat(WORDLIST_FILENAME, &st);
 	long int size = st.st_size;
 
 	do{
+		// generate random number between 0 and filesize
 		long int random = (rand() % size) + 1;
+		// seek to the random position of file
 		fseek(fp, random, SEEK_SET);
+		// get next word in row ;)
 		int result = fscanf(fp, "%*s %20s", secret);
 		if( result != EOF )
 			break;
@@ -53,17 +58,15 @@ void get_guessed_word(const char secret[], const char letters_guessed[], char gu
 			}
 		}
 		if ( sum == strlen(letters_guessed)){
-			printf("_");
+			guessed_word[i] = '_';
 		}
-		else printf("%c", secret[i]);
+		else guessed_word[i] = secret[i];
 		sum = 0;
 	}
-	scanf("%s", guessed_word);
 }
-
 void get_available_letters(const char letters_guessed[], char available_letters[]){
-	char abeceda[]= "abcdefghijklmnoprstuvwxyz";
-	int sum = 0, count = 0;
+	char abeceda[]= "abcdefghijklmnopqrstuvwxyz";
+	int sum = 0, count = 0, counter = 0;
 	for ( int i = 0; i < strlen(abeceda); i++){
 		for ( int a = 0; a < strlen(abeceda); a++){
 			if (  abeceda[i] == letters_guessed[a]){
@@ -71,40 +74,41 @@ void get_available_letters(const char letters_guessed[], char available_letters[
 			}
 		}
 		if ( sum != 1){
-			printf("%c",abeceda[i]);
+			available_letters[counter] = abeceda[i];
+			counter += 1;
 		}
 		else {
 			count += 1;
 		}
 		sum = 0;
-	}	
-	scanf("%s", available_letters);
+	}
 }
-
 void hangman(const char secret[]){
-	int g = 8, sum =0, h = 8;
+	int g = 8, sum =0, h = 8, count = 0;
 	char letters_guessed;
 	char secrett[strlen(secret)];
-	char abeceda[]= "abcdefghijklmnoprstuvwxyz";
+	char abeceda[]= "abcdefghijklmnopqrstuvwxyz";
 	for (int w = 0; 0 < strlen(secret); w++){
 		secrett[w] = '_';
 	}
 	printf("Welcome to the game, Hangman!\n");
-	printf("I am thinking of a word that is %ld letters long.\n", strlen(secret));
+	printf("I am thinking of a word that is %ld letters long.\n", strlen(secrett));
 		printf("---------------\n");
 	for ( int i = 0; i < g &&  secret != secrett; i++){
                 g += 1;
 		printf("You have %d guesses\n", h);
-		printf("Available letters : ");
-		get_available_letters( "", abeceda);
-		printf("Please guess a letter\n");
+		printf("Available letters : %s", abeceda);
+		printf("\n");
+		printf("Please guess a letter");
 		scanf("%c", &letters_guessed);
 		for (int a = 0; a < strlen(secret); a++){
 			if (letters_guessed == secret[a]){
 			       secrett[a] = letters_guessed;
 			       sum = 1;
 			}
+			count += 1;
 		}
+		count = 0;
                 if (sum == 1){ 
 			printf("Good guess: %s", secrett);
 		}
