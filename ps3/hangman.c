@@ -82,7 +82,7 @@ void get_available_letters(const char letters_guessed[], char available_letters[
 }
 
 void hangman(const char secret[]){
-	int g = 8, sum =0;
+	int g = 8, sum =0, h = 8;
 	char letters_guessed;
 	char secrett[strlen(secret)];
 	char abeceda[]= "abcdefghijklmnoprstuvwxyz";
@@ -90,10 +90,11 @@ void hangman(const char secret[]){
 		secrett[w] = '_';
 	}
 	printf("Welcome to the game, Hangman!\n");
-	printf("I am thinking of a word that is %ld letters long\n", strlen(secret));
+	printf("I am thinking of a word that is %ld letters long.\n", strlen(secret));
+		printf("---------------\n");
 	for ( int i = 0; i < g &&  secret != secrett; i++){
                 g += 1;
-		printf("You have %d guesses\n", g);
+		printf("You have %d guesses\n", h);
 		printf("Available letters : ");
 		get_available_letters( "", abeceda);
 		printf("Please guess a letter\n");
@@ -110,6 +111,7 @@ void hangman(const char secret[]){
 		else if(sum == 0) {
 			printf("Oops! That letter is not in my word: %s", secrett);
 			g += -1;
+			h += -1;
 			} 
 		printf("\n");
                 sum = 0;
@@ -120,4 +122,5 @@ void hangman(const char secret[]){
 	}
 	else printf("Sorry, you ran out of guesses. The word was %s.", secret);
 }
+
 
