@@ -97,7 +97,7 @@ void hangman(const char secret[]){
 	printf("Welcome to the game, Hangman!\n");
 	printf("I am thinking of a word that is %ld letters long\n", strlen(secret));
 	for ( int i = 0; i < g &&  secret != secrett; i++){
-		g += 1;
+                g += 1;
 		printf("You have %d guesses\n", g);
 		printf("Available letters : ");
 		get_available_letters( "", abeceda);
@@ -120,4 +120,9 @@ void hangman(const char secret[]){
                 sum = 0;
 		printf("---------------\n");
 	}
+	if (secrett == secret){
+		printf("Congratulations, you won!");
+	}
+	else printf("Sorry, you ran out of guesses. The word was %s.", secret);
 }
+
