@@ -58,7 +58,7 @@ void get_guessed_word(const char secret[], const char letters_guessed[], char gu
 		else printf("%c", secret[i]);
 		sum = 0;
 	}
-	printf("\n");
+	scanf("%s", guessed_word);
 }
 
 void get_available_letters(const char letters_guessed[], char available_letters[]){
@@ -78,7 +78,7 @@ void get_available_letters(const char letters_guessed[], char available_letters[
 		}
 		sum = 0;
 	}	
-	printf("\n");
+	scanf("%s", available_letters);
 }
 
 void hangman(const char secret[]){
