@@ -51,22 +51,23 @@ int is_word_guessed(const char secret[], const char letters_guessed[]){
 
 void get_guessed_word(const char secret[], const char letters_guessed[], char guessed_word[]){
 	int sum = 0;
-	for ( int i = 0; i < strlen(secret); i++){
+	int size = strlen(secret);
+	for (int a = 0; a < size; a++){
+		guessed_word[a] = '_';
+	}
+	for ( int i = 0; i < size; i++){
 		for ( int a = 0; a < strlen(letters_guessed); a++){
 			if ( secret[i] != letters_guessed[a]){
 				sum += 1;
 			}
 		}
-		if ( sum == strlen(letters_guessed)){
-			guessed_word[i] = '_';
+		if ( sum != strlen(letters_guessed)){
+			guessed_word[i] = secret[i];
 		}
-		else guessed_word[i] = secret[i];
-		sum = 0;
-		if ( strlen(secret) == i){
-			break;
-		}
+		sum = 0;	       
 	}
 }
+
 void get_available_letters(const char letters_guessed[], char available_letters[]){
 	char abeceda[]= "abcdefghijklmnopqrstuvwxyz";
 	int sum = 0, count = 0, counter = 0;
@@ -87,6 +88,7 @@ void get_available_letters(const char letters_guessed[], char available_letters[
 		sum = 0;
 	}
 }
+
 
 void hangman(const char secret[]){
 	int g = 8, sum =0, h = 8, count = 0;
