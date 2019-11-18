@@ -76,7 +76,7 @@ void get_available_letters(const char letters_guessed[], char available_letters[
 	int sum = 0, count = 0, counter = 0;
 	int size = strlen(lol);
 	int k = 0;
-	lol[size] ='\0';
+	int sizee = strlen(letters_guessed);
 	for ( int i = 0; i < size; i++){
 		for ( int a = 0; a < size; a++){
 			if (  lol[i] == letters_guessed[a]){
@@ -93,7 +93,7 @@ void get_available_letters(const char letters_guessed[], char available_letters[
 		sum = 0;
 		k = i;
 	}
-	available_letters[k] = '\0';
+	available_letters[k + 1 - sizee] = '\0';
 }
 
 void hangman(const char secret[]){
