@@ -93,7 +93,7 @@ void get_available_letters(const char letters_guessed[], char available_letters[
 		sum = 0;
 		k = i;
 	}
-	available_letters[k] = '\0';
+	available_letters[k + 1] = '\0';
 }
 
 void hangman(const char secret[]){
@@ -103,6 +103,7 @@ void hangman(const char secret[]){
 	char op[50], letters_guessed[50], available_letters[50], guess[50];
         for ( int g = 8; g > 0; g--){
 		printf("---------------\n");
+		printf("You have %d guesses left.\n", g);
 		get_available_letters(letters_guessed, available_letters);
 		printf("Available letters : %s", available_letters);
 		printf("\n");
@@ -114,7 +115,7 @@ void hangman(const char secret[]){
 			return;
 		}
 		else {
-			printf("Sorry, bad gurss, the word was %s.\n", secret);
+			printf("Sorry, bad guess, the word was %s.\n", secret);
 			return;
 		}
 		}
