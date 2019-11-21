@@ -72,35 +72,20 @@ void get_guessed_word(const char secret[], const char letters_guessed[], char gu
 }
 
 void get_available_letters(const char letters_guessed[], char available_letters[]){
-	char lol[] = "abcdefghijklmnopqrstuvwxyz";
-	int sum = 0, count = 0, counter = 0;
-	int size = strlen(lol);
-	int k = 0;
-	int sizee = strlen(letters_guessed);
-	for ( int i = 0; i < size; i++){
-		for ( int a = 0; a < size; a++){
-			if (  lol[i] == letters_guessed[a]){
-				sum = 1;
-			}
+        int a = 0;
+	sscanf("abcdefghijklmnopqrstuvwxyz","%26s", available_letters);
+	while (available_letters[a] != '\0'){
+		if (strchr(letters_guessed, available_letters[a]) != NULL) {
+			memmove(&available_letters[a], &available_letters[a+1], strlen(available_letters) - a);
+			a--;
 		}
-		if ( sum != 1){
-			available_letters[counter] = lol[i] ;
-			counter += 1;
-		}
-		else {
-			count += 1;
-		}
-		sum = 0;
-		k = i;
+		a++;
 	}
-	available_letters[k + 1 - sizee] = '\0';
 }
-
 void hangman(const char secret[]){
 	printf("Welcome to the game, Hangman!\n");
 	printf("I am thinking of a word that is %d letters long.\n", (int)strlen(secret));
 	int idx_of_letters_guessed = 0;
-	int sum = 0;
 	char op[50], letters_guessed[50], available_letters[50], guess[50];
         for ( int g = 8; g > 0; g--){
 		printf("-------------\n");
@@ -121,7 +106,7 @@ void hangman(const char secret[]){
 		}
 		}
 		if (strchr(letters_guessed, guess[0])){
-			printf("Oops, you have already guessed that letter:");
+			printf("Oops! You've already guessed that letter:");
 			for (int a; a < strlen(op); a++){
 				printf(" %c", op[a]);
 			}
@@ -132,22 +117,8 @@ void hangman(const char secret[]){
 		letters_guessed[idx_of_letters_guessed] = guess[0];
 	        idx_of_letters_guessed ++;
 	        get_guessed_word(secret, letters_guessed, op);
-		for (int f =0; f < strlen(available_letters); f++){
-		       if (guess[0] == available_letters[f]){
-		       sum = 1;
-		       }		
-		}
 		if (strchr(secret, guess[0]) != NULL){
 		        printf("Good guess:");
-			int lengthofop = strlen(op);
-			for ( int j =0; j< lengthofop; j++){
-			printf(" %c", op[j]);
-			}
-			printf("\n"); 
-			g++;
-		}
-		else if (sum != 1){
-		        printf("Oopps! '%s' is not a valid letter:", guess);
 			int lengthofop = strlen(op);
 			for ( int j =0; j< lengthofop; j++){
 			printf(" %c", op[j]);
@@ -163,15 +134,12 @@ void hangman(const char secret[]){
 			}
 			printf("\n"); 
 		}
-		sum = 0;
 		if (is_word_guessed(secret, letters_guessed)){
 				printf("-------------\n");
-				printf("Congratulation, you won!\n");
+				printf("Congratulations, you won!\n");
 				return;
 				}
 	}
 	printf("-------------\n");
 	printf("Sorry, you ran out of guesses. The word was %s.", secret);
 }
-
-
