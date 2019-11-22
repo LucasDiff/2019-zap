@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
+#include <stdbool.h>
 void encode_char(const char character, bool bits[8]);
 char decode_byte(const bool bits[8]);
 int main() {
@@ -21,11 +22,11 @@ void encode_char(const char character, bool bits[8]){
 	         if ( a >= div){
 		       a = a - div;
                        div = div / 2;
-                       bool bits[j] = true;
+                       bits[j] = true;
 		 }
 		 else { 
 			 div = div / 2;
-		       bool bits[j] = false;
+		       bits[j] = false;
 		 }
 	}
 	return;
