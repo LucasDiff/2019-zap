@@ -5,3 +5,4 @@ void get_guessed_word(const char secret[], const char letters_guessed[], char gu
 void get_available_letters(const char letters_guessed[], char available_letters[]); 
 void hangman(const char secret[]);
 int get_word(char secret[]);
+void print(char in[]);
