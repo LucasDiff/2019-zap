@@ -158,7 +158,7 @@ void hangman(const char secret[]){
 		}
 	}
 	printf("-------------\n");
-	printf("Sorry, you ran out of guesses. The word was %s. ",secret);
+	printf("Sorry, you ran out of guesses. The word was %s.\n",secret);
 }
 
 
