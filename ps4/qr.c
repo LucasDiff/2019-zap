@@ -6,40 +6,36 @@
 void encode_char(const char character, bool bits[8]);
 char decode_byte(const bool bits[8]);
 int main() {
-	bool bits[8];
-	encode_char('A', bits[8]);
-	for(int i = 0; i < 8; i++){
-		    printf("%d", bits[i]);
-	}
-	printf("\n");
+	bool bits[8] = {0,1,0,0,0,0,0,1};
+	printf("%c\n", decode_byte(bits));
 	return 0;
 }
 void encode_char(const char character, bool bits[8]){ 
-        int ascii_value = character;
-	int a = ascii_value;
+	int a = character;
 	int div = 128;
 	for (int j = 0; j < 8; j++){
 	         if ( a >= div){
 		       a = a - div;
                        div = div / 2;
-                       bits[j] = true;
+                       bits[j] = 1;
 		 }
 		 else { 
 			 div = div / 2;
-		       bits[j] = false;
+		       bits[j] = 0;
 		 }
 	}
 	return;
 }
 char decode_byte(const bool bits[8]){
-	int div = 128;
+	int z = 0;
 	int sum = 0;
 	for (int a = 0; a < 8; a++){
-		if (bits[a] == 1){
-			sum = sum + div;
-			div = div / 2;
+		if (bits[7 - a] == 1){
+			z = pow(2, a);	
+			sum = sum + z;
 		}
 	}
-	char n = sum;
+	char n = (char)sum;
+	printf("%d", sum);
 	return n;
 }
