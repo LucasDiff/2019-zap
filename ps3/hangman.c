@@ -146,6 +146,7 @@ void hangman(const char secret[]){
 			print(op);
 		}
 		else {
+		    guess[0] = guess[0] - 32;
 			printf("Oops! '%s' is not a valid letter:", guess);
 			print(op);
 			g++;
