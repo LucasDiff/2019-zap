@@ -30,7 +30,7 @@ int main (int argc, char* argv[]) {
 	}
 	fclose(fpointer);
 	FILE *fpointerr= fopen(argv[1],"w");
-        fprintf(fpointer,"%d",count);
+        fputc(fpointer,"%d",count);
 	fclose(fpointerr);
 	return 0;
 }
