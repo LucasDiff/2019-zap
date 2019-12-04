@@ -15,7 +15,7 @@ int main (int argc, char* argv[]) {
 		letter = fgetc(fpointer);
 		if (letter == 'S' || letter == 'T' || letter == 'A' || letter == 'R'){
 			sum++;
-			
+			continue;
 		}
 		if (sum >= 5){
 		if (letter == 'O'){
@@ -46,7 +46,7 @@ int main (int argc, char* argv[]) {
 	}
 	fclose(fpointer);
 	FILE *fpointerr= fopen("output.txt","w");
-	for (int p = 1; p < h; p++){
+	for (int p = 2; p < h; p++){
 		fputc(word[p],fpointerr);
 	}
 
