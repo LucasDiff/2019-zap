@@ -57,7 +57,7 @@ bool is_ananas(char word[], const int velkost){
 			s++;
 		}
 	}
-	if (a == 3 && n == 2 && s == 1){
+	if (a >= 3 && n >= 2 && s >= 1){
 		return true;
 	}
 	return false;
