@@ -29,7 +29,6 @@ int main (int argc, char* argv[]) {
 			word[c] = ' ';
 			word[c+1] = '\0';
 			c++;
-			h++;
 			}
 			if (g % 2 == 0){
 			if (letter == ' '){
