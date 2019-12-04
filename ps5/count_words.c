@@ -8,8 +8,8 @@ int main (int argc, char* argv[]) {
 	char letter;
 	int count=0;
 	char word[80];
+    int velkost = 0;
 	int c =0;
-	int velkost = 0;
 	char pismeno;
 	while (letter != EOF) {
 	letter = fgetc(fpointer);
