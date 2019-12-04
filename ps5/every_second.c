@@ -67,7 +67,7 @@ int main (int argc, char* argv[]) {
 	}
 	fclose(fpointer);
 	FILE *fpointerr= fopen("output.txt","w");
-	for (int p = 3; p < h - 4; p++){
+	for (int p = 4; p < h; p++){
 		fputc(word[p],fpointerr);
 	}
 
