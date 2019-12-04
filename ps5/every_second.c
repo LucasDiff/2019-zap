@@ -15,6 +15,7 @@ int main (int argc, char* argv[]) {
 		letter = fgetc(fpointer);
 		        if (letter == 'O' || letter == 'P'){
 				l++;
+				continue;
 			}
 			if (letter == 'S' || letter == 'T' || letter == 'A' || letter == 'R'){
 				sum++;
