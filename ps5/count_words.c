@@ -7,7 +7,7 @@ int main (int argc, char* argv[]) {
 	FILE *fpointer= fopen(argv[1],"r");
 	char letter;
 	int count=0;
-	char word[60];
+	char word[40];
 	int c =0;
 	int velkost = 0;
 	char pismeno;
@@ -31,8 +31,14 @@ int main (int argc, char* argv[]) {
 			velkost++;
 	}
 	fclose(fpointer);
+	printf("%d",count);
 	FILE *fpointerr= fopen(argv[1],"w");
 	pismeno = count + '0';
+	if (pismeno > 67){
+		pismeno = pismeno - 20;
+		lol = 50;
+		fputc(lol,fpointerr);
+	}
 	if (pismeno > 57){
 		pismeno = pismeno - 10;
 		lol = 49;
@@ -62,6 +68,7 @@ bool is_ananas(char word[], const int velkost){
 	}
 	return false;
 }
+
 
 	
 
