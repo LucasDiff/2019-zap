@@ -11,42 +11,46 @@ int main (int argc, char* argv[]) {
 	int l = 0;
 	int h = 0;
 	char word[500];
-	while (l != 2) {
+	while (l != 1) {
 		letter = fgetc(fpointer);
-		        if (letter == 'O' || letter == 'P'){
-				l++;
-				continue;
+		if (letter == 'S' || letter == 'T' || letter == 'A' || letter == 'R'){
+			sum++;
+			
+		}
+		if (sum >= 5){
+		if (letter == 'O'){
+			l++;
+		}
+		       if(letter == 'P'){
+		}
+			if (letter == 'T'){
 			}
-			if (letter == 'S' || letter == 'T' || letter == 'A' || letter == 'R'){
-				sum++;
+			if (letter == 'S'){
 			}
-			if (sum >= 5){
-				if (letter == 'T'){
-					continue;
-				}
 			if (letter == ' ' || letter == EOF){
-			g++;
-			word[c] = ' ';
-			word[c+1] = '\0';
-			c++;
+				g++;
+				word[c] = ' ';
+				word[c+1] = '\0';
+				c++;
 			}
 			if (g % 2 == 0){
-			if (letter == ' '){
-				c = c - 2;
+				if (letter == ' '){
+					c = c - 2;
+				}
+				word[c] = letter;
+				word[c+1] = '\0';
+				c++;
+				h++;
 			}
-			word[c] = letter;
-			word[c+1] = '\0';
-			c++;
-			h++;
-			}
-			}
+		}
 	}
 	fclose(fpointer);
 	FILE *fpointerr= fopen("output.txt","w");
 	for (int p = 1; p < h; p++){
-	fputc(word[p],fpointerr);
+		fputc(word[p],fpointerr);
 	}
-	
+
 	fclose(fpointerr);
 	return 0;
 }
+
