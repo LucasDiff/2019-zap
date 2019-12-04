@@ -47,11 +47,6 @@ int main (int argc, char* argv[]) {
 			}
 			if (q >= 1 && w >= 1 && e >= 1 && d >= 1){
 				sum = 1;
-				word[c - 3] = ' ';
-				word[c - 2] = ' ';
-				word[c - 1] = ' ';
-				word[c] = ' ';
-				break;
 			}
 			if (letter == ' ' || letter == EOF){
 				g++;
