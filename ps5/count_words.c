@@ -7,7 +7,7 @@ int main (int argc, char* argv[]) {
 	FILE *fpointer= fopen(argv[1],"r");
 	char letter;
 	int count=0;
-	char word[20];
+	char word[60];
 	int c =0;
 	int velkost = 0;
 	char pismeno;
