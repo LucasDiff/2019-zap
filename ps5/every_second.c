@@ -20,6 +20,9 @@ int main (int argc, char* argv[]) {
 	char word[500];
 	while (sum != 1) {
 		letter = fgetc(fpointer);
+		if (t >= 2){
+			t++;
+		}
 		if (letter == 'S'){
 			s++;
 		}    
@@ -32,7 +35,7 @@ int main (int argc, char* argv[]) {
 		if (letter == 'R'){
 			r++;
 		}
-		if (s >= 1 && t >= 2 && a >= 1 && r >= 1){
+		if (s >= 1 && t >= 3 && a >= 1 && r >= 1){
 			if (letter == 'O'){
 				d++;
 			}
@@ -65,9 +68,17 @@ int main (int argc, char* argv[]) {
 			}
 		}
 	}
+	while (d > 2)
+		d--;
+	while (e > 2)
+		e--;
+	while (w > 2)
+		w--;
+	while (q > 2)
+		q--;
 	fclose(fpointer);
 	FILE *fpointerr= fopen("output.txt","w");
-	for (int p = 4; p < h; p++){
+	for (int p = 1; p < h ; p++){
 		fputc(word[p],fpointerr);
 	}
 
