@@ -17,7 +17,7 @@ int main (int argc, char* argv[]) {
 	int w = 0;
 	int q = 0;
 	int sum = 0;
-	char word[1000];
+	char word[1200];
 	while (sum != 1) {
 		letter = fgetc(fpointer);
 		if (t >= 2){
@@ -78,7 +78,7 @@ int main (int argc, char* argv[]) {
 		q--;
 	fclose(fpointer);
 	FILE *fpointerr= fopen("output.txt","w");
-	for (int p = 1; p < h ; p++){
+	for (int p = 1; p < h - 4 ; p++){
 		fputc(word[p],fpointerr);
 	}
 
