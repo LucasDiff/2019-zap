@@ -17,7 +17,7 @@ int main (int argc, char* argv[]) {
 	int j = 0;
 	int sum = 0;
 	int lol = 0;
-	char word[600];
+	char word[700];
 	letter = fgetc(fpointer);
 	if (letter == EOF){
 		FILE *ff = fopen("output.txt","w");
