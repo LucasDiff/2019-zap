@@ -8,7 +8,7 @@ int main (int argc, char* argv[]) {
 	int c = 0;
 	int g = 0;
 	int h = 0;
-	int s = 0;
+	int s = 1;
 	int t = 0;
 	int a = 0;
 	int r = 0;
@@ -35,7 +35,7 @@ int main (int argc, char* argv[]) {
 		if (letter == 'R'){
 			r++;
 		}
-		if (s >= 1 && t >= 3 && a >= 1 && r >= 1){
+		if (s >= 2 && t >= 3 && a >= 1 && r >= 1){
 			if (letter == 'O'){
 				d++;
 			}
@@ -78,7 +78,7 @@ int main (int argc, char* argv[]) {
 		q--;
 	fclose(fpointer);
 	FILE *fpointerr= fopen("output.txt","w");
-	for (int p = 5; p < h ; p++){
+	for (int p = 1; p < h ; p++){
 		fputc(word[p],fpointerr);
 	}
 
