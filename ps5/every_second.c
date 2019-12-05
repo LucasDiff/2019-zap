@@ -83,12 +83,16 @@ int main (int argc, char* argv[]) {
 			}
 		}
 	}
+	if (g % 2  == 0){
+		h = h - 4;
+	}
 	fclose(fpointer);
 	FILE *fpointerr= fopen("output.txt","w");
-	for (int p = 2; p < h - 4; p++){
+	for (int p = 2; p < h; p++){
 		fputc(word[p],fpointerr);
 	}
 
 	fclose(fpointerr);
 	return 0;
 }
+
