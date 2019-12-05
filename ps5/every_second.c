@@ -12,56 +12,59 @@ int main (int argc, char* argv[]) {
 	int t = 0;
 	int a = 0;
 	int r = 0;
-	int d = 0;
-	int e = 0;
-	int w = 0;
-	int q = 0;
+	int l = 0;
+	int k = 0;
+	int j = 0;
 	int sum = 0;
+	int lol = 0;
 	char word[500];
 	while (sum != 1) {
 		letter = fgetc(fpointer);
-		if (t >= 2){
-			t++;
-		}
-		if (letter == 'S'){
-			s++;
-		}    
-		if (letter == 'T'){
-			t++;
-		}	
-		if (letter == 'A'){
-			a++;
-		}	
-		if (letter == 'R'){
-			r++;
-		}
-		if ( t >= 2 && r < 1){
-			t--;
-		}
-		if (s >= 1 && t >= 3 && a >= 1 && r >= 1){
-			if (letter == 'O'){
-				d++;
+		        if (r == 1 && letter == 'T'){
+				lol = 1;
 			}
-			if(letter == 'P'){
-				e++;
+			if (letter == 'R' && a == 1){
+				r = 1;
 			}
-			if (letter == 'T'){
-				w++;
+			if ( j == 1 && letter != 'R'){
+				a = 0;
+			}
+			if (letter == 'A' && t == 1){
+				a = 1;
+			}
+			if ( t == 1 && letter != 'A'){
+				t = 0;
+			}
+			if (letter == 'T' && s == 1){
+				t = 1;
+			}
+			if ( s == 1 && letter != 'T'){
+				s = 0;
 			}
 			if (letter == 'S'){
-				q++;
+				s = 1;
 			}
-			if ( e >= 1 && d < 1){
-				e--;
-			}
-			if ( e >= 1 && w < 1){
-				e--;
-			}
-			if ( e >= 1 && q < 1){
-				e--;
-			}
-			if (q >= 1 && w >= 1 && e >= 1 && d >= 1){
+		if ( lol == 1){
+			if (letter == 'P' && j == 1){
 				sum = 1;
+			}
+			if ( j == 1 && letter != 'P'){
+				j = 0;
+			}
+			if (letter == 'O' && k == 1){
+				j = 1;
+			}
+			if ( k == 1 && letter != 'O'){
+				k = 0;
+			}
+			if (letter == 'T' && l == 1){
+				k = 1;
+			}
+			if ( l == 1 && letter != 'T'){
+				l = 0;
+			}
+			if (letter == 'S'){
+				l = 1;
 			}
 			if (letter == ' ' || letter == EOF){
 				g++;
@@ -80,17 +83,9 @@ int main (int argc, char* argv[]) {
 			}
 		}
 	}
-	while (d > 2)
-		d--;
-	while (e > 2)
-		e--;
-	while (w > 2)
-		w--;
-	while (q > 2)
-		q--;
 	fclose(fpointer);
 	FILE *fpointerr= fopen("output.txt","w");
-	for (int p = 1; p < h - 4; p++){
+	for (int p = 2; p < h - 4; p++){
 		fputc(word[p],fpointerr);
 	}
 
