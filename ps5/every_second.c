@@ -18,6 +18,12 @@ int main (int argc, char* argv[]) {
 	int sum = 0;
 	int lol = 0;
 	char word[500];
+	letter = fgetc(fpointer);
+	if (letter == EOF){
+		FILE *ff = fopen("output.txt","w");
+		fclose(ff);
+		return 0;
+	}
 	while (sum != 1) {
 		letter = fgetc(fpointer);
 		        if (r == 1 && letter == 'T'){
@@ -95,4 +101,3 @@ int main (int argc, char* argv[]) {
 	fclose(fpointerr);
 	return 0;
 }
-
