@@ -17,7 +17,7 @@ int main (int argc, char* argv[]) {
 	int w = 0;
 	int q = 0;
 	int sum = 0;
-	char word[5000];
+	char word[1000];
 	while (sum != 1) {
 		letter = fgetc(fpointer);
 		if (t >= 2){
