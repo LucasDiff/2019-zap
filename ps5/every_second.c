@@ -17,13 +17,7 @@ int main (int argc, char* argv[]) {
 	int j = 0;
 	int sum = 0;
 	int lol = 0;
-	char word[800];
-	letter = fgetc(fpointer);
-	if (letter == EOF){
-		FILE *ff = fopen("output.txt","w");
-		fclose(ff);
-		return 0;
-	}
+	char word[500];
 	while (sum != 1) {
 		letter = fgetc(fpointer);
 		        if (r == 1 && letter == 'T'){
@@ -92,7 +86,14 @@ int main (int argc, char* argv[]) {
 	if (g % 2  == 0){
 		h = h - 4;
 	}
+	letter = fgetc(fpointer);
+	if (letter == EOF){
+		FILE *ff = fopen("output.txt","w");
+		fclose(ff);
+		return 0;
+		fclose(fpointer);
 	fclose(fpointer);
+	}
 	FILE *fpointerr= fopen("output.txt","w");
 	for (int p = 2; p < h; p++){
 		fputc(word[p],fpointerr);
@@ -101,3 +102,4 @@ int main (int argc, char* argv[]) {
 	fclose(fpointerr);
 	return 0;
 }
+
