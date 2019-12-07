@@ -84,7 +84,7 @@ int main (int argc, char* argv[]) {
 		}
 	}
 	if (g % 2  == 0){
-		h = h - 4;
+		h = h - 5;
 	}
 	FILE *fpointerr= fopen("output.txt","w");
 	for (int p = 2; p < h; p++){
