@@ -24,7 +24,7 @@ int main (int argc, char* argv[]) {
 	if (yey == EOF){
 	    y = 1;
 	}
-	while (sum != 1 || letter == EOF) {
+	while (sum != 1 || letter != EOF) {
 		letter = fgetc(fpointer);
 		        if (r == 1 && letter == 'T'){
 				lol = 1;
