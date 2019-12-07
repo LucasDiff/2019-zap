@@ -33,7 +33,7 @@ int main (int argc, char* argv[]) {
 		if (letter == 'R' && a == 1){
 			r = 1;
 		}
-		if ( j == 1 && letter != 'R'){
+		if ( a== 1 && letter != 'R'){
 			a = 0;
 		}
 		if (letter == 'A' && t == 1){
