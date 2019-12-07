@@ -86,7 +86,13 @@ int main (int argc, char* argv[]) {
 	if (g % 2  == 0){
 		h = h - 4;
 	}
-	letter = fgetc(fpointer);
+	FILE *fpointerr= fopen("output.txt","w");
+	for (int p = 2; p < h; p++){
+		fputc(word[p],fpointerr);
+	}
+
+	fclose(fpointerr);
+		letter = fgetc(fpointer);
 	if (letter == EOF){
 		FILE *ff = fopen("output.txt","w");
 		fclose(ff);
@@ -94,12 +100,6 @@ int main (int argc, char* argv[]) {
 		fclose(fpointer);
 	fclose(fpointer);
 	}
-	FILE *fpointerr= fopen("output.txt","w");
-	for (int p = 2; p < h; p++){
-		fputc(word[p],fpointerr);
-	}
-
-	fclose(fpointerr);
 	return 0;
 }
 
