@@ -19,7 +19,9 @@ int main (int argc, char* argv[]) {
 	int lol = 0;
 	char word[500];
 	int y = 0;
-	if (fpointer == EOF){
+	char yey;
+	yey = fgetc(fpointer);
+	if (yey == EOF){
 	    y = 1;
 	}
 	while (sum != 1) {
