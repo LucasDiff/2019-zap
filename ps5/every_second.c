@@ -29,6 +29,9 @@ int main (int argc, char* argv[]) {
 		        if (r == 1 && letter == 'T'){
 				lol = 1;
 			}
+			if (r == 1 && letter != 'T'){
+			    r = 0;
+			}
 			if (letter == 'R' && a == 1){
 				r = 1;
 			}
