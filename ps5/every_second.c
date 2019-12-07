@@ -93,7 +93,7 @@ int main (int argc, char* argv[]) {
 
 	fclose(fpointerr);
 		letter = fgetc(fpointer);
-	if (letter == EOF){
+	if (word[0] == '\0'){
 		FILE *ff = fopen("output.txt","w");
 		fclose(ff);
 		return 0;
