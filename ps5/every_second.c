@@ -4,7 +4,7 @@
 #include <stdbool.h>
 int main (int argc, char* argv[]) {
 	FILE *fpointer= fopen(argv[1],"r");
-	char letter;
+	char letter = 'S';
 	int c = 0;
 	int g = 0;
 	int h = 0;
