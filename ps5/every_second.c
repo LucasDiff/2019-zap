@@ -19,6 +19,7 @@ int main (int argc, char* argv[]) {
 	int lol = 0;
 	char word[600];
 	int y = 0;
+    int f = 1;
 	while (sum != 1) {
 		letter = fgetc(fpointer);
 		if (letter == EOF){
@@ -48,9 +49,10 @@ int main (int argc, char* argv[]) {
 		if ( s == 1 && letter != 'T'){
 			s = 0;
 		}
-		if (letter == 'S'){
+		if (letter == 'S' || f ==1){
 			s = 1;
 		}
+		f = 0;
 		if ( lol == 1){
 			if (letter == 'P' && j == 1){
 				sum = 1;
